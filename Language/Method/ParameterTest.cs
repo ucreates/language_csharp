@@ -56,6 +56,6 @@ public class Parameter
 
     public void Params(params int[] numbers)
     {
-        foreach (var number in numbers) Console.Write($"params {number}\n");
+        foreach (var number in numbers) Console.WriteLine($"params {number}");
     }
 }

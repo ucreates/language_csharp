@@ -1,4 +1,4 @@
-using Language;
+namespace Language;
 
 public class TupleTest
 {

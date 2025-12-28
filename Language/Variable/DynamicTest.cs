@@ -1,7 +1,5 @@
 ﻿namespace Language;
 
-using System.Diagnostics;
-
 public class DynamicTest
 {
     [Test]
