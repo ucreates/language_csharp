@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Framework\" />
+        <Folder Include="Framework\"/>
         <Folder Include="Variable\"/>
         <Folder Include="Method\"/>
     </ItemGroup>

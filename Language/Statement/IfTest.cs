@@ -1,4 +1,4 @@
-namespace Language.Statement;
+namespace Language;
 
 public class IfTest
 {

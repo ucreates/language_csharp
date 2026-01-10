@@ -1,4 +1,4 @@
-namespace Language.Reference;
+namespace Language;
 
 public class NullableTest
 {
