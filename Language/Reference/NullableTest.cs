@@ -54,7 +54,7 @@ public class NullableTest
     /// Value
     /// </summary>
     [Test]
-    public void ValueTest()
+    public void Value1Test()
     {
         int? value1 = 1;
         Console.WriteLine($"result {value1.Value}");
@@ -67,7 +67,7 @@ public class NullableTest
     /// HasValue
     /// </summary>
     [Test]
-    public void HasValueTest()
+    public void HasValue1Test()
     {
         int? value1 = 1;
         Console.WriteLine($"result {value1.HasValue}");
@@ -77,6 +77,39 @@ public class NullableTest
         Console.WriteLine($"result {value3.Value1.HasValue}");
     }
 
+    /// <summary>
+    /// nullable(変換)/int
+    /// </summary>
+    [Test]
+    public void CastInt1Test()
+    {
+        int? value1 = 1;
+        int value2 = (int)value1;
+        Console.WriteLine($"result {value2}");
+    }
+
+    /// <summary>
+    /// nullable(変換)/int
+    /// </summary>
+    [Test]
+    public void CastInt2Test()
+    {
+        int? value1 = null;
+        string value2 = value1?.ToString();
+        Console.WriteLine($"result {value2}");
+    }
+    
+    /// <summary>
+    /// nullable(変換)/string
+    /// </summary>
+    [Test]
+    public void CastString1Test()
+    {
+        string? value1 = null;
+        string value2 = (string)value1;
+        Console.WriteLine($"result {value2}");
+    }
+    
     public class Reference
     {
         public int? Value1 { get; set; }
