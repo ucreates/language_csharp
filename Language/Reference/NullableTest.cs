@@ -84,7 +84,7 @@ public class NullableTest
     public void CastInt1Test()
     {
         int? value1 = 1;
-        int value2 = (int)value1;
+        var value2 = (int)value1;
         Console.WriteLine($"result {value2}");
     }
 
@@ -95,10 +95,10 @@ public class NullableTest
     public void CastInt2Test()
     {
         int? value1 = null;
-        string value2 = value1?.ToString();
+        var value2 = value1?.ToString();
         Console.WriteLine($"result {value2}");
     }
-    
+
     /// <summary>
     /// nullable(変換)/string
     /// </summary>
@@ -106,10 +106,10 @@ public class NullableTest
     public void CastString1Test()
     {
         string? value1 = null;
-        string value2 = (string)value1;
+        var value2 = (string)value1;
         Console.WriteLine($"result {value2}");
     }
-    
+
     public class Reference
     {
         public int? Value1 { get; set; }
