@@ -59,7 +59,18 @@ public class DelegateTest
     public void Anonymous1Test()
     {
         var obj = new BasicDelegate();
-        obj.ExecuteAnonymous1(delegate() { return 0; });
+        obj.ExecuteAnonymous1(delegate()
+        {
+            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            return;
+        });
+    }
+
+    [Test]
+    public void Anonymous2Test()
+    {
+        var obj = new BasicDelegate();
+        obj.ExecuteAnonymous2(delegate() { return 0; });
     }
 
     public class BasicDelegate
@@ -105,7 +116,12 @@ public class DelegateTest
             return 2;
         }
 
-        public void ExecuteAnonymous1(Func<int> cb)
+        public void ExecuteAnonymous1(Action cb)
+        {
+            cb();
+        }
+
+        public void ExecuteAnonymous2(Func<int> cb)
         {
             var result = cb();
             Console.WriteLine($"{System.Reflection.MethodBase.GetCurrentMethod()?.Name} {result}");
