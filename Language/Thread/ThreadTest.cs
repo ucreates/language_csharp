@@ -92,14 +92,9 @@ public class ThreadTest
         Console.WriteLine($"Enter::{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
         var tasks = new Task[500000];
         for (var i = 0; i < tasks.Length; i++)
-        {
             //排他制御なし
             tasks[i] = Task.Run(() => ThreadProcess.NotExclusiveIncrement());
-        }
-        for (var i = 0; i < tasks.Length; i++)
-        {
-            tasks[i].Wait();
-        }
+        for (var i = 0; i < tasks.Length; i++) tasks[i].Wait();
         Console.WriteLine($"IncrementCount::{ThreadProcess.IncrementCount}");
         Console.WriteLine($"Leave::{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
     }
@@ -110,22 +105,18 @@ public class ThreadTest
         Console.WriteLine($"Enter::{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
         var tasks = new Task[500000];
         for (var i = 0; i < tasks.Length; i++)
-        {
-            //排他制御なし
+            //排他制御あり
             tasks[i] = Task.Run(() => ThreadProcess.ExclusiveIncrement());
-        }
-        for (var i = 0; i < tasks.Length; i++)
-        {
-            tasks[i].Wait();
-        }
+        for (var i = 0; i < tasks.Length; i++) tasks[i].Wait();
         Console.WriteLine($"IncrementCount::{ThreadProcess.IncrementCount}");
         Console.WriteLine($"Leave::{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
     }
-    
+
     private class ThreadProcess
     {
         public static int IncrementCount = 0;
-        public static object lockObj = new object();
+        public static object lockObj = new();
+
         public static void Count(object obj)
         {
             for (var i = 0; i < 50; i++) Console.WriteLine($"Thread{obj}::{i}");
@@ -138,6 +129,7 @@ public class ThreadTest
                 IncrementCount++;
             }
         }
+
         public static void NotExclusiveIncrement()
         {
             IncrementCount++;
