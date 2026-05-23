@@ -53,6 +53,20 @@ public class ClassTest
         Console.WriteLine($"{instance}");
     }
 
+    [Test]
+    public void InheritClassObjectTest2()
+    {
+        var instance = new InheritClassObject();
+        instance.Show();
+    }
+
+    [Test]
+    public void InheritClassObjectTest3()
+    {
+        var instance = new InheritClassObject();
+        Console.WriteLine(instance.Value);
+    }
+
     public class PublicClassObject
     {
     }
@@ -75,13 +89,26 @@ public class ClassTest
 
     public class BaseClassObject
     {
+        public double Value { get; set; } = 0;
+
         public void Execute()
         {
             Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
+        }
+
+        public void Show()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(BaseClassObject)}");
         }
     }
 
     public class InheritClassObject : BaseClassObject
     {
+        public new double Value { get; set; } = 2;
+
+        public new void Show()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+        }
     }
 }
