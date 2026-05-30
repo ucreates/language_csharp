@@ -67,6 +67,20 @@ public class ClassTest
         Console.WriteLine(instance.Value);
     }
 
+    [Test]
+    public void InheritClassObjectTest4()
+    {
+        var instance = new InheritClassObject();
+        instance.OverrideMethod();
+    }
+
+    [Test]
+    public void InheritClassObjectTest5()
+    {
+        var instance = new InheritClassObject();
+        GC.Collect();
+    }
+
     public class PublicClassObject
     {
     }
@@ -89,7 +103,17 @@ public class ClassTest
 
     public class BaseClassObject
     {
+        public BaseClassObject()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(BaseClassObject)}");
+        }
+
         public double Value { get; set; } = 0;
+
+        ~BaseClassObject()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(BaseClassObject)}");
+        }
 
         public void Execute()
         {
@@ -100,13 +124,33 @@ public class ClassTest
         {
             Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(BaseClassObject)}");
         }
+
+        public virtual void OverrideMethod()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(BaseClassObject)}");
+        }
     }
 
     public class InheritClassObject : BaseClassObject
     {
+        public InheritClassObject()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+        }
+
         public new double Value { get; set; } = 2;
 
+        ~InheritClassObject()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+        }
+
         public new void Show()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+        }
+
+        public override void OverrideMethod()
         {
             Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
         }
