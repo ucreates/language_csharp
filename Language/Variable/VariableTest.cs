@@ -101,6 +101,25 @@ public class VariableTest
         Console.WriteLine($"bool {b}");
         Console.WriteLine($"object {o}");
     }
+
+    [Test]
+    public void TypeDetermination()
+    {
+        var variable = new Variable();
+        if (variable is Variable) Console.WriteLine($"object is {typeof(Variable)}");
+        if (variable is Variable v) Console.WriteLine($"{v} is {typeof(Variable)}");
+    }
+
+    [Test]
+    public void DownCast()
+    {
+        var object1 = new object();
+        var variable1 = object1 as Variable;
+        Assert.That(variable1, Is.Null);
+        var variable2 = new Variable();
+        var object2 = variable2 as object;
+        Assert.That(object2, Is.Not.Null);
+    }
 }
 
 public class Variable
@@ -116,7 +135,7 @@ public class Variable
 
         public int Method()
         {
-            Console.WriteLine($"Execute Method");
+            Console.WriteLine("Execute Method");
             return 0;
         }
     }
