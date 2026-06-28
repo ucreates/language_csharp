@@ -47,38 +47,45 @@ public class ClassTest
     }
 
     [Test]
-    public void InheritClassObjectTest1()
+    public void InheritClassObject1Test1()
     {
-        var instance = new InheritClassObject();
+        var instance = new InheritClassObject1();
         Console.WriteLine($"{instance}");
     }
 
     [Test]
-    public void InheritClassObjectTest2()
+    public void InheritClassObject1Test2()
     {
-        var instance = new InheritClassObject();
+        var instance = new InheritClassObject1();
         instance.Show();
     }
 
     [Test]
-    public void InheritClassObjectTest3()
+    public void InheritClassObject1Test3()
     {
-        var instance = new InheritClassObject();
+        var instance = new InheritClassObject1();
         Console.WriteLine(instance.Value);
     }
 
     [Test]
-    public void InheritClassObjectTest4()
+    public void InheritClassObject1Test4()
     {
-        var instance = new InheritClassObject();
+        var instance = new InheritClassObject1();
         instance.OverrideMethod();
     }
 
     [Test]
-    public void InheritClassObjectTest5()
+    public void InheritClassObject1Test5()
     {
-        var instance = new InheritClassObject();
+        var instance = new InheritClassObject1();
         GC.Collect();
+    }
+
+    [Test]
+    public void InheritClassObject2Test1()
+    {
+        var instance = new InheritClassObject2();
+        instance.AbstractMethod();
     }
 
     public class PublicClassObject
@@ -99,6 +106,11 @@ public class ClassTest
 
     private class PrivateClassObject
     {
+    }
+
+    public abstract class AbstractClassObject
+    {
+        public abstract void AbstractMethod();
     }
 
     public class BaseClassObject
@@ -131,28 +143,36 @@ public class ClassTest
         }
     }
 
-    public class InheritClassObject : BaseClassObject
+    public class InheritClassObject1 : BaseClassObject
     {
-        public InheritClassObject()
+        public InheritClassObject1()
         {
-            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject1)}");
         }
 
         public new double Value { get; set; } = 2;
 
-        ~InheritClassObject()
+        ~InheritClassObject1()
         {
-            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject1)}");
         }
 
         public new void Show()
         {
-            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject1)}");
         }
 
         public override void OverrideMethod()
         {
-            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject)}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject1)}");
+        }
+    }
+
+    public class InheritClassObject2 : AbstractClassObject
+    {
+        public override void AbstractMethod()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
         }
     }
 }
