@@ -1,6 +1,6 @@
 using System.Reflection;
 using NST = NameSpaceTest1;
-using Alias1 = NameSpaceTest1;
+using static System.Math;
 
 namespace Language
 {
@@ -34,6 +34,12 @@ namespace Language
         {
             var instance1 = new NameSpaceTest2.Alias2.NameSpaceTest();
             instance1.Execute();
+        }
+
+        [Test]
+        public void NameSpaceStaticTest1()
+        {
+            Console.WriteLine(Round(1.6));
         }
     }
 }
