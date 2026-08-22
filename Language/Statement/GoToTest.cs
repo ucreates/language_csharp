@@ -20,8 +20,7 @@ public class GoToTest
             var result = i * j;
             if (result > 40)
                 goto END;
-            else
-                Console.WriteLine($"repayment::{result}");
+            Console.WriteLine($"repayment::{result}");
         }
 
         END:

@@ -3,7 +3,7 @@ namespace Language;
 public class SwitchTest
 {
     /// <summary>
-    /// スイッチ(整数)
+    ///     スイッチ(整数)
     /// </summary>
     [Test]
     public void Switch1Test()
@@ -32,7 +32,7 @@ public class SwitchTest
     }
 
     /// <summary>
-    /// スイッチ(文字列)
+    ///     スイッチ(文字列)
     /// </summary>
     [Test]
     public void Switch2Test()
@@ -61,7 +61,7 @@ public class SwitchTest
     }
 
     /// <summary>
-    /// スイッチ(型)
+    ///     スイッチ(型)
     /// </summary>
     [Test]
     public void Switch3Test()
@@ -90,7 +90,7 @@ public class SwitchTest
     }
 
     /// <summary>
-    /// スイッチ(条件)
+    ///     スイッチ(条件)
     /// </summary>
     [Test]
     public void Switch4Test()

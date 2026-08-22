@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Reflection;
 
 namespace Language;
 
@@ -38,27 +39,27 @@ public class AttributeTest
         [Obsolete("not supported", false)]
         public void Method1()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
         }
 
         [UserDefinedAttribute]
         public int Method2()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
             return 0;
         }
 
         [return: UserDefinedAttribute]
         public int Method3()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
             return 0;
         }
 
         [Conditional("TEST")]
         public void Method4()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
         }
     }
 

@@ -6,7 +6,7 @@ public class FuncTest
     public void DelegateTest()
     {
         // delegate版
-        Func<int, (int timebarDuration, int endFrameThumbDuration)> func = delegate(int index) { return (1, 1); };
+        Func<int, (int timebarDuration, int endFrameThumbDuration)> func = delegate { return (1, 1); };
         var result = func(1);
         Console.WriteLine($"result1:{result.timebarDuration},result2:{result.endFrameThumbDuration}");
     }
@@ -15,7 +15,7 @@ public class FuncTest
     public void LambdaTest()
     {
         // ラムダ式 版
-        Func<int, (int timebarDuration, int endFrameThumbDuration)> func = (int index) => { return (1, 1); };
+        Func<int, (int timebarDuration, int endFrameThumbDuration)> func = index => { return (1, 1); };
         var result = func(1);
         Console.WriteLine($"result1:{result.timebarDuration},result2:{result.endFrameThumbDuration}");
     }
@@ -37,7 +37,7 @@ public class FuncTest
     public void Var2Test()
     {
         // var(パターン2) 版
-        var func = new Func<int, (int timebarDuration, int endFrameThumbDuration)>((int index) =>
+        var func = new Func<int, (int timebarDuration, int endFrameThumbDuration)>(index =>
         {
             Console.WriteLine($"params:{index}");
             return (1, 1);

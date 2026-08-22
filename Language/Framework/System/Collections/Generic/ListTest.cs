@@ -1,12 +1,12 @@
-namespace Language;
-
 using System.Diagnostics;
+
+namespace Language;
 
 [TestFixture]
 public class ListTest
 {
     /// <summary>
-    /// LINQ/クエリ構文
+    ///     LINQ/クエリ構文
     /// </summary>
     [Test]
     public void Query1Test()
@@ -18,7 +18,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/Where句テスト(数値)
+    ///     LINQ/クエリ構文/Where句テスト(数値)
     /// </summary>
     [Test]
     public void QueryWhereStatement1Test()
@@ -29,7 +29,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/Where句テスト(文字列)
+    ///     LINQ/クエリ構文/Where句テスト(文字列)
     /// </summary>
     [Test]
     public void QueryWhereStatement2Test()
@@ -44,7 +44,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/Where句テスト(範囲)
+    ///     LINQ/クエリ構文/Where句テスト(範囲)
     /// </summary>
     [Test]
     public void QueryWhereStatement3Test()
@@ -55,7 +55,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/遅延実行
+    ///     LINQ/クエリ構文/遅延実行
     /// </summary>
     [Test]
     public void QueryDelayedExecute1Test()
@@ -71,7 +71,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/即時実行
+    ///     LINQ/クエリ構文/即時実行
     /// </summary>
     [Test]
     public void QueryImmediateExecute1Test()
@@ -87,7 +87,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/GroupBy/単数
+    ///     LINQ/クエリ構文/GroupBy/単数
     /// </summary>
     [Test]
     public void QueryGroupByStatement1Test()
@@ -102,7 +102,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/GroupBy/複数
+    ///     LINQ/クエリ構文/GroupBy/複数
     /// </summary>
     [Test]
     public void QueryGroupByStatement2Test()
@@ -111,14 +111,13 @@ public class ListTest
         var result = from element in list
             group element by new
             {
-                Name = element.Name,
-                Price = element.Price
+                element.Name, element.Price
             };
         foreach (var i in result) Console.WriteLine($"{i.Key.Name},{i.Key.Price}");
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/GroupBy/絞り込み
+    ///     LINQ/クエリ構文/GroupBy/絞り込み
     /// </summary>
     [Test]
     public void QueryGroupByStatement3Test()
@@ -137,7 +136,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/OrderBy/昇順
+    ///     LINQ/クエリ構文/OrderBy/昇順
     /// </summary>
     [Test]
     public void QueryOrderByStatement1Test()
@@ -148,7 +147,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/OrderBy/降順
+    ///     LINQ/クエリ構文/OrderBy/降順
     /// </summary>
     [Test]
     public void QueryOrderByStatement2Test()
@@ -159,7 +158,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/クエリ構文/結合
+    ///     LINQ/クエリ構文/結合
     /// </summary>
     [Test]
     public void QueryJoinStatement2Test()
@@ -170,7 +169,7 @@ public class ListTest
             join right in productReviewList on left.Code equals right.Code
             select new
             {
-                Name = left.Name,
+                left.Name,
                 User = right.Name,
                 Review = right.Description
             };
@@ -178,7 +177,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/要素走査
+    ///     LINQ/要素走査
     /// </summary>
     [Test]
     public void Foreach1Test()
@@ -200,7 +199,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/重複を除外する
+    ///     LINQ/重複を除外する
     /// </summary>
     [Test]
     public void Distinct1Test()
@@ -215,7 +214,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/指定したインデックスから指定した件数のデータを取得する
+    ///     LINQ/指定したインデックスから指定した件数のデータを取得する
     /// </summary>
     [Test]
     public void SkipTake1Test()
@@ -227,7 +226,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/先頭データ取得
+    ///     LINQ/先頭データ取得
     /// </summary>
     [Test]
     public void First1Test()
@@ -238,7 +237,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/先頭データ(デフォルト値含む)取得
+    ///     LINQ/先頭データ(デフォルト値含む)取得
     /// </summary>
     [Test]
     public void FirstOrDefault1Test()
@@ -252,7 +251,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/末尾データ取得
+    ///     LINQ/末尾データ取得
     /// </summary>
     [Test]
     public void Last1Test()
@@ -264,7 +263,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/末尾データ取得(デフォルト値含む)
+    ///     LINQ/末尾データ取得(デフォルト値含む)
     /// </summary>
     [Test]
     public void LastOrDefault1Test()
@@ -280,7 +279,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/単一データ取得
+    ///     LINQ/単一データ取得
     /// </summary>
     [Test]
     public void Single1Test()
@@ -305,7 +304,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/単一データ取得(デフォルト値含む)
+    ///     LINQ/単一データ取得(デフォルト値含む)
     /// </summary>
     [Test]
     public void Single2Test()
@@ -317,7 +316,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/最小値取得
+    ///     LINQ/最小値取得
     /// </summary>
     [Test]
     public void Min1Test()
@@ -329,7 +328,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/最小値(条件)
+    ///     LINQ/最小値(条件)
     /// </summary>
     [Test]
     public void Min2Test()
@@ -344,7 +343,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/最大値取得
+    ///     LINQ/最大値取得
     /// </summary>
     [Test]
     public void Max1Test()
@@ -356,7 +355,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/最大値(条件)
+    ///     LINQ/最大値(条件)
     /// </summary>
     [Test]
     public void Max2Test()
@@ -371,7 +370,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/合計
+    ///     LINQ/合計
     /// </summary>
     [Test]
     public void Sum1Test()
@@ -382,7 +381,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/合計(条件)
+    ///     LINQ/合計(条件)
     /// </summary>
     [Test]
     public void Sum2Test()
@@ -393,7 +392,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/集計
+    ///     LINQ/集計
     /// </summary>
     [Test]
     public void GroupBy1Test()
@@ -408,7 +407,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/All
+    ///     LINQ/All
     /// </summary>
     [Test]
     public void All1Test()
@@ -420,7 +419,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/All
+    ///     LINQ/All
     /// </summary>
     [Test]
     public void All2Test()
@@ -432,7 +431,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/Any
+    ///     LINQ/Any
     /// </summary>
     [Test]
     public void Any1Test()
@@ -444,7 +443,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/Any
+    ///     LINQ/Any
     /// </summary>
     [Test]
     public void Any2Test()
@@ -456,7 +455,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/平均
+    ///     LINQ/平均
     /// </summary>
     [Test]
     public void Average1Test()
@@ -467,7 +466,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/平均(条件)
+    ///     LINQ/平均(条件)
     /// </summary>
     [Test]
     public void Average2Test()
@@ -478,7 +477,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/集計(文字列連結)
+    ///     LINQ/集計(文字列連結)
     /// </summary>
     [Test]
     public void Aggregate1Test()
@@ -490,7 +489,7 @@ public class ListTest
     }
 
     /// <summary>
-    /// LINQ/型判定
+    ///     LINQ/型判定
     /// </summary>
     [Test]
     public void OfType1Test()

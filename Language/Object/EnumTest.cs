@@ -2,6 +2,11 @@ namespace Language;
 
 public class EnumTest
 {
+    public enum PublicEnumObject
+    {
+        Test
+    }
+
     [Test]
     public void PublicClassObjectTest1()
     {
@@ -30,11 +35,6 @@ public class EnumTest
     public void PrivateClassObjectTest1()
     {
         Console.WriteLine($"{PrivateEnumObject.Test}");
-    }
-
-    public enum PublicEnumObject
-    {
-        Test
     }
 
     protected enum ProtectedEnumObject

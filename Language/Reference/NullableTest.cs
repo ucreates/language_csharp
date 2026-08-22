@@ -3,12 +3,12 @@ namespace Language;
 public class NullableTest
 {
     /// <summary>
-    /// 明示型
+    ///     明示型
     /// </summary>
     [Test]
     public void ExplicitlyTest()
     {
-        Nullable<int> value = null;
+        int? value = null;
         Console.WriteLine($"result {value}");
         value = 1;
         Console.WriteLine($"result {value}");
@@ -19,7 +19,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// 非明示型
+    ///     非明示型
     /// </summary>
     [Test]
     public void NotExplicitlyTest()
@@ -35,7 +35,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// 変換
+    ///     変換
     /// </summary>
     [Test]
     public void ConvertTest()
@@ -46,12 +46,12 @@ public class NullableTest
         Console.WriteLine($"result {value2}");
         value1 = null;
         Console.WriteLine($"result {value1}");
-        value2 = (int)(value1 ?? 2);
+        value2 = value1 ?? 2;
         Console.WriteLine($"result {value2}");
     }
 
     /// <summary>
-    /// Value
+    ///     Value
     /// </summary>
     [Test]
     public void Value1Test()
@@ -64,7 +64,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// HasValue
+    ///     HasValue
     /// </summary>
     [Test]
     public void HasValue1Test()
@@ -78,7 +78,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// nullable(変換)/int
+    ///     nullable(変換)/int
     /// </summary>
     [Test]
     public void CastInt1Test()
@@ -89,7 +89,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// nullable(変換)/int
+    ///     nullable(変換)/int
     /// </summary>
     [Test]
     public void CastInt2Test()
@@ -100,7 +100,7 @@ public class NullableTest
     }
 
     /// <summary>
-    /// nullable(変換)/string
+    ///     nullable(変換)/string
     /// </summary>
     [Test]
     public void CastString1Test()
@@ -113,6 +113,6 @@ public class NullableTest
     public class Reference
     {
         public int? Value1 { get; set; }
-        public Nullable<int> Value2 { get; set; }
+        public int? Value2 { get; set; }
     }
 }

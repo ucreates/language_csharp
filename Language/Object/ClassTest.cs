@@ -88,6 +88,14 @@ public class ClassTest
         instance.AbstractMethod();
     }
 
+    [Test]
+    public void PartialClassObject1Test1()
+    {
+        var instance = new PartialClassObject1();
+        instance.Show1();
+        instance.Show2();
+    }
+
     public class PublicClassObject
     {
     }
@@ -171,6 +179,30 @@ public class ClassTest
     public class InheritClassObject2 : AbstractClassObject
     {
         public override void AbstractMethod()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+        }
+    }
+
+    public partial class PartialClassObject1
+    {
+        private partial void Show3();
+
+        public void Show1()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+        }
+    }
+
+    public partial class PartialClassObject1
+    {
+        public void Show2()
+        {
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+            Show3();
+        }
+
+        private partial void Show3()
         {
             Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
         }

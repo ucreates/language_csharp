@@ -52,7 +52,7 @@ public class Tuple
 
     public (int, string, Variable.TestVariableObject)[] VerificationArray()
     {
-        var tuples = new (int, string, Variable.TestVariableObject)[]
+        var tuples = new[]
         {
             (1, "test1", new Variable.TestVariableObject { Name = "TestObject1" }),
             (2, "test2", new Variable.TestVariableObject { Name = "TestObject2" })

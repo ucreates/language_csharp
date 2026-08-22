@@ -3,7 +3,7 @@ namespace Language;
 public class NullOperatorTest
 {
     /// <summary>
-    /// null合体演算子
+    ///     null合体演算子
     /// </summary>
     [Test]
     public void NullUnionTest()
@@ -19,7 +19,7 @@ public class NullOperatorTest
     }
 
     /// <summary>
-    /// null条件演算子
+    ///     null条件演算子
     /// </summary>
     [Test]
     public void NullConditionTest()
@@ -29,7 +29,7 @@ public class NullOperatorTest
     }
 
     /// <summary>
-    /// null条件Indexer
+    ///     null条件Indexer
     /// </summary>
     [Test]
     public void NullConditionIndexerTest()
@@ -39,7 +39,7 @@ public class NullOperatorTest
     }
 
     /// <summary>
-    /// null抑制演算子
+    ///     null抑制演算子
     /// </summary>
     [Test]
     public void NullRestraintTest()

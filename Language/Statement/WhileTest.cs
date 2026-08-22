@@ -3,7 +3,7 @@ namespace Language;
 public class WhileTest
 {
     /// <summary>
-    /// 基本
+    ///     基本
     /// </summary>
     [Test]
     public void While1Test()
@@ -17,7 +17,7 @@ public class WhileTest
     }
 
     /// <summary>
-    /// 前置判定
+    ///     前置判定
     /// </summary>
     [Test]
     public void While2Test()
@@ -32,7 +32,7 @@ public class WhileTest
     }
 
     /// <summary>
-    /// 基本
+    ///     基本
     /// </summary>
     [Test]
     public void DoWhile1Test()
@@ -46,7 +46,7 @@ public class WhileTest
     }
 
     /// <summary>
-    /// 後置判定
+    ///     後置判定
     /// </summary>
     [Test]
     public void DoWhile2Test()

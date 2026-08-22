@@ -1,7 +1,6 @@
-namespace Language;
+using System.Reflection;
 
-using System;
-using NUnit.Framework;
+namespace Language;
 
 public class ActionTest
 {
@@ -9,10 +8,7 @@ public class ActionTest
     public void DelegateTest()
     {
         // delegate版
-        Action action = delegate
-        {
-            Console.WriteLine($"{GetType().FullName}.{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
-        };
+        Action action = delegate { Console.WriteLine($"{GetType().FullName}.{MethodBase.GetCurrentMethod()?.Name}"); };
         action?.Invoke();
     }
 
@@ -21,7 +17,7 @@ public class ActionTest
     {
         // ラムダ式 版
         var action = () =>
-            Console.WriteLine($"{GetType().FullName}.{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
+            Console.WriteLine($"{GetType().FullName}.{MethodBase.GetCurrentMethod()?.Name}");
         action?.Invoke();
     }
 
@@ -29,9 +25,9 @@ public class ActionTest
     public void Var1Test()
     {
         // var(パターン1) 版
-        var action = new Action(delegate()
+        var action = new Action(delegate
         {
-            Console.WriteLine($"{GetType().FullName}.{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
+            Console.WriteLine($"{GetType().FullName}.{MethodBase.GetCurrentMethod()?.Name}");
         });
         action?.Invoke();
     }
@@ -42,7 +38,7 @@ public class ActionTest
         // var(パターン2) 版
         var action = new Action(() =>
         {
-            Console.WriteLine($"{GetType().FullName}.{System.Reflection.MethodBase.GetCurrentMethod()?.Name}");
+            Console.WriteLine($"{GetType().FullName}.{MethodBase.GetCurrentMethod()?.Name}");
         });
         action?.Invoke();
     }

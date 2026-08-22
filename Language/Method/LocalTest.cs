@@ -3,7 +3,7 @@ namespace Language;
 public class LocalTest
 {
     /// <summary>
-    /// ローカル関数定義
+    ///     ローカル関数定義
     /// </summary>
     [Test]
     public void Local1Test()

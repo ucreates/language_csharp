@@ -3,7 +3,7 @@ namespace Language;
 public class ForeachTest
 {
     /// <summary>
-    /// 基本
+    ///     基本
     /// </summary>
     [Test]
     public void ForEach1Test()
@@ -13,7 +13,7 @@ public class ForeachTest
     }
 
     /// <summary>
-    /// テストデータ取得
+    ///     テストデータ取得
     /// </summary>
     /// <returns></returns>
     public int[] GetTestValueArrays()

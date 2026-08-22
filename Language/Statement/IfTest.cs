@@ -3,7 +3,7 @@ namespace Language;
 public class IfTest
 {
     /// <summary>
-    /// 単純分岐
+    ///     単純分岐
     /// </summary>
     [Test]
     public void SingleBranchTest()
@@ -16,31 +16,31 @@ public class IfTest
 
         var resultBool1 = 0 == resultLong1 % 2;
         if (resultBool1)
-            Console.WriteLine($"true");
+            Console.WriteLine("true");
         else
-            Console.WriteLine($"false");
+            Console.WriteLine("false");
 
         if (!resultBool1)
-            Console.WriteLine($"true");
+            Console.WriteLine("true");
         else
-            Console.WriteLine($"false");
+            Console.WriteLine("false");
 
         var resultLong2 = new Random().NextInt64();
         var resultBool2 = 0 == resultLong2 % 2;
 
         if (resultBool1 && resultBool2)
-            Console.WriteLine($"true");
+            Console.WriteLine("true");
         else
-            Console.WriteLine($"false");
+            Console.WriteLine("false");
 
         if (resultBool1 || resultBool2)
-            Console.WriteLine($"true");
+            Console.WriteLine("true");
         else
-            Console.WriteLine($"false");
+            Console.WriteLine("false");
     }
 
     /// <summary>
-    /// 多岐分岐
+    ///     多岐分岐
     /// </summary>
     [Test]
     public void MultipleBranchTest()
@@ -55,7 +55,7 @@ public class IfTest
     }
 
     /// <summary>
-    /// ネスト分岐
+    ///     ネスト分岐
     /// </summary>
     [Test]
     public void NestBranchTest()

@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Language;
 
 public class DelegateTest
@@ -59,18 +61,14 @@ public class DelegateTest
     public void Anonymous1Test()
     {
         var obj = new BasicDelegate();
-        obj.ExecuteAnonymous1(delegate()
-        {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
-            return;
-        });
+        obj.ExecuteAnonymous1(delegate { Console.WriteLine(MethodBase.GetCurrentMethod()?.Name); });
     }
 
     [Test]
     public void Anonymous2Test()
     {
         var obj = new BasicDelegate();
-        obj.ExecuteAnonymous2(delegate() { return 0; });
+        obj.ExecuteAnonymous2(delegate { return 0; });
     }
 
     public class BasicDelegate
@@ -83,17 +81,17 @@ public class DelegateTest
 
         public void ExecuteNormal1()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
         }
 
         public void ExecuteNormal2()
         {
-            Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod()?.Name);
+            Console.WriteLine(MethodBase.GetCurrentMethod()?.Name);
         }
 
         public void ExecuteParams1(string value)
         {
-            Console.WriteLine($"{System.Reflection.MethodBase.GetCurrentMethod()?.Name} {value}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} {value}");
         }
 
         public void ExecuteDelegate1(DelegateExecute1 cb)
@@ -124,7 +122,7 @@ public class DelegateTest
         public void ExecuteAnonymous2(Func<int> cb)
         {
             var result = cb();
-            Console.WriteLine($"{System.Reflection.MethodBase.GetCurrentMethod()?.Name} {result}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} {result}");
         }
     }
 }

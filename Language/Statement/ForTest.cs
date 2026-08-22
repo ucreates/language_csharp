@@ -3,7 +3,7 @@ namespace Language;
 public class ForTest
 {
     /// <summary>
-    /// 基本
+    ///     基本
     /// </summary>
     [Test]
     public void For1Test()
@@ -12,7 +12,7 @@ public class ForTest
     }
 
     /// <summary>
-    /// 無限ループ
+    ///     無限ループ
     /// </summary>
     [Test]
     public void For2Test()
@@ -27,7 +27,7 @@ public class ForTest
     }
 
     /// <summary>
-    /// 反復子にて複数構文を実行
+    ///     反復子にて複数構文を実行
     /// </summary>
     [Test]
     public void For3Test()
@@ -36,7 +36,7 @@ public class ForTest
     }
 
     /// <summary>
-    /// Continue
+    ///     Continue
     /// </summary>
     [Test]
     public void For4Test()
@@ -50,7 +50,7 @@ public class ForTest
     }
 
     /// <summary>
-    /// ネスト構造
+    ///     ネスト構造
     /// </summary>
     [Test]
     public void For5Test()

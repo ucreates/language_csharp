@@ -1,5 +1,4 @@
 using System.Collections;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 
 namespace Language;
 
@@ -67,11 +66,11 @@ public class ReturnTest
     {
         public IEnumerable<string> GetStrings()
         {
-            Console.WriteLine($"1");
+            Console.WriteLine("1");
             yield return "A";
-            Console.WriteLine($"2");
+            Console.WriteLine("2");
             yield return "B";
-            Console.WriteLine($"3");
+            Console.WriteLine("3");
             yield return "C";
         }
 
@@ -82,7 +81,7 @@ public class ReturnTest
 
         public async IAsyncEnumerable<int> GetNumbersAsync(int max)
         {
-            Func<int, Task<int>> cb = async (value) =>
+            Func<int, Task<int>> cb = async value =>
             {
                 await Task.Delay(10);
                 return value;
@@ -111,7 +110,7 @@ public class ReturnTest
             for (var i = 0; i < 100; i++)
                 if (i % 2 == 0)
                 {
-                    Console.WriteLine($"yield break");
+                    Console.WriteLine("yield break");
                     yield break;
                 }
                 else

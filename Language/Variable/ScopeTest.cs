@@ -3,7 +3,7 @@ namespace Language;
 public class ScopeTest
 {
     /// <summary>
-    /// 基本
+    ///     基本
     /// </summary>
     [Test]
     public void Scope1Test()
@@ -17,7 +17,7 @@ public class ScopeTest
     }
 
     /// <summary>
-    /// フィールドとローカル変数1
+    ///     フィールドとローカル変数1
     /// </summary>
     [Test]
     public void Scope2Test()
@@ -29,7 +29,7 @@ public class ScopeTest
     }
 
     /// <summary>
-    /// フィールドとローカル変数2
+    ///     フィールドとローカル変数2
     /// </summary>
     [Test]
     public void Scope3Test()
@@ -42,7 +42,7 @@ public class ScopeTest
 
     private class ScopeTestObject1
     {
-        public string data = "field";
+        public readonly string data = "field";
 
         public string GetLocalData()
         {
@@ -53,7 +53,7 @@ public class ScopeTest
 
     private class ScopeTestObject2
     {
-        public string data = "field";
+        public readonly string data = "field";
 
         public string GetLocalData()
         {

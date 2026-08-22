@@ -2,16 +2,13 @@ using System.Reflection;
 
 namespace Language;
 
-using System.Linq;
-using System.Collections.Generic;
-
 public class ReflectionTest
 {
     [Test]
     public void Activator1Test()
     {
         var reflectionTest = Activator.CreateInstance(typeof(ReflectionClass));
-        Console.WriteLine($"{reflectionTest.ToString()}");
+        Console.WriteLine($"{reflectionTest}");
     }
 
     [Test]
@@ -19,14 +16,14 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        reflectionTest.GetConstructors().ToList().ForEach(method => Console.WriteLine($"{method.ToString()}"));
+        reflectionTest.GetConstructors().ToList().ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【public】");
         reflectionTest.GetConstructors(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【non public】");
         reflectionTest.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly)
             .ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
     }
 
     [Test]
@@ -34,13 +31,13 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        reflectionTest.GetMethods().ToList().ForEach(method => Console.WriteLine($"{method.ToString()}"));
+        reflectionTest.GetMethods().ToList().ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【public】");
         reflectionTest.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【non public】");
         reflectionTest.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
     }
 
     [Test]
@@ -49,10 +46,10 @@ public class ReflectionTest
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【public】");
         reflectionTest.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【non public】");
         reflectionTest.GetMethods(BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
     }
 
     [Test]
@@ -60,13 +57,13 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        reflectionTest.GetProperties().ToList().ForEach(method => Console.WriteLine($"{method.ToString()}"));
+        reflectionTest.GetProperties().ToList().ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【public】");
         reflectionTest.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).ToList()
-            .ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ForEach(method => Console.WriteLine($"{method}"));
         Console.WriteLine("## 【non public】");
         reflectionTest.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-            .ToList().ForEach(method => Console.WriteLine($"{method.ToString()}"));
+            .ToList().ForEach(method => Console.WriteLine($"{method}"));
     }
 
     [Test]
@@ -74,15 +71,15 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        foreach (var eventInfo in reflectionTest.GetFields()) Console.WriteLine($"{eventInfo.ToString()}");
+        foreach (var eventInfo in reflectionTest.GetFields()) Console.WriteLine($"{eventInfo}");
         Console.WriteLine("## 【public】");
         foreach (var eventInfo in reflectionTest.GetFields(BindingFlags.Public | BindingFlags.Instance |
                                                            BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{eventInfo.ToString()}");
+            Console.WriteLine($"{eventInfo}");
         Console.WriteLine("## 【non public】");
         foreach (var eventInfo in reflectionTest.GetFields(BindingFlags.NonPublic | BindingFlags.Instance |
                                                            BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{eventInfo.ToString()}");
+            Console.WriteLine($"{eventInfo}");
     }
 
     [Test]
@@ -90,15 +87,15 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        foreach (var memberInfo in reflectionTest.GetMembers()) Console.WriteLine($"{memberInfo.ToString()}");
+        foreach (var memberInfo in reflectionTest.GetMembers()) Console.WriteLine($"{memberInfo}");
         Console.WriteLine("## 【public】");
         foreach (var memberInfo in reflectionTest.GetMembers(BindingFlags.Public | BindingFlags.Instance |
                                                              BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{memberInfo.ToString()}");
+            Console.WriteLine($"{memberInfo}");
         Console.WriteLine("## 【non public】");
         foreach (var memberInfo in reflectionTest.GetMembers(BindingFlags.NonPublic | BindingFlags.Instance |
                                                              BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{memberInfo.ToString()}");
+            Console.WriteLine($"{memberInfo}");
     }
 
     [Test]
@@ -120,15 +117,15 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        foreach (var eventInfo in reflectionTest.GetEvents()) Console.WriteLine($"{eventInfo.ToString()}");
+        foreach (var eventInfo in reflectionTest.GetEvents()) Console.WriteLine($"{eventInfo}");
         Console.WriteLine("## 【public】");
         foreach (var eventInfo in reflectionTest.GetEvents(BindingFlags.Public | BindingFlags.Instance |
                                                            BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{eventInfo.ToString()}");
+            Console.WriteLine($"{eventInfo}");
         Console.WriteLine("## 【non public】");
         foreach (var eventInfo in reflectionTest.GetEvents(BindingFlags.NonPublic | BindingFlags.Instance |
                                                            BindingFlags.DeclaredOnly))
-            Console.WriteLine($"{eventInfo.ToString()}");
+            Console.WriteLine($"{eventInfo}");
     }
 
     [Test]
@@ -136,25 +133,17 @@ public class ReflectionTest
     {
         var reflectionTest = typeof(ReflectionClass);
         Console.WriteLine("## 【default】");
-        foreach (var interfaceInfo in reflectionTest.GetInterfaces()) Console.WriteLine($"{interfaceInfo.ToString()}");
+        foreach (var interfaceInfo in reflectionTest.GetInterfaces()) Console.WriteLine($"{interfaceInfo}");
     }
 
     private class ReflectionClass : ReflectionInterface
     {
         public delegate void TestEventHandler(object sender, EventArgs e);
 
-        public event TestEventHandler TestEventPublic;
-        protected event TestEventHandler TestEventProtected;
-        private event TestEventHandler TestEventPrivate;
+        protected string strPrivate = "strPrivate";
+        protected string strProtected = "strProtected";
 
         public string strPublic = "strPublic";
-        protected string strProtected = "strProtected";
-        protected string strPrivate = "strPrivate";
-        public int IdPublic { get; set; } = 0;
-
-        protected int IdProtected { get; set; } = 1;
-
-        private int IdPrivate { get; set; } = 2;
 
         public ReflectionClass()
         {
@@ -171,6 +160,16 @@ public class ReflectionTest
         private ReflectionClass(float value)
         {
         }
+
+        public int IdPublic { get; set; } = 0;
+
+        protected int IdProtected { get; set; } = 1;
+
+        private int IdPrivate { get; set; } = 2;
+
+        public event TestEventHandler TestEventPublic;
+        protected event TestEventHandler TestEventProtected;
+        private event TestEventHandler TestEventPrivate;
 
         public void ExecuteInstancePublic()
         {
@@ -197,7 +196,7 @@ public class ReflectionTest
         }
     }
 
-    private enum ReflectionEnum : int
+    private enum ReflectionEnum
     {
         Red = 0,
         Green = 1,
