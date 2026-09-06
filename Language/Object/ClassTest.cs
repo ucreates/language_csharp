@@ -96,6 +96,15 @@ public class ClassTest
         instance.Show2();
     }
 
+    [Test]
+    public void GenericClassObject1Test1()
+    {
+        var instance = new GenericClassObject1<int>();
+        instance.Value = default;
+        instance.SetPER(0);
+        instance.CompareTo(1, 0);
+    }
+
     public class PublicClassObject
     {
     }
@@ -198,13 +207,30 @@ public class ClassTest
     {
         public void Show2()
         {
-            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+            Console.WriteLine($"{Methoase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
             Show3();
         }
 
         private partial void Show3()
         {
             Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+        }
+    }
+
+    public class GenericClassObject1<T> where T : IComparable<T>
+    {
+        public T Value { get; set; }
+
+        public void SetPER(T value)
+        {
+            Console.WriteLine($"faild {value} and set default ");
+        }
+
+        public T CompareTo(T previousSeason, T thisSeason)
+        {
+            if (0 > thisSeason.CompareTo(previousSeason)) Console.WriteLine("faild and set default ");
+
+            return default;
         }
     }
 }

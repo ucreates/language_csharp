@@ -28,7 +28,7 @@ public class ObjectClass1
         Name1 = name1;
         Name2 = name2;
     }
-    
+
     public override string ToString()
     {
         return $"{Name1} {Name2}";

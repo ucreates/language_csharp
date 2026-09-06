@@ -27,6 +27,15 @@ public class IndexerTest
         for (var i = 0; i < stringArray.Length; i++) Console.WriteLine($@"indexer{i}::{indexer[stringArray[i]]}");
     }
 
+    [Test]
+    public void GenericIndexerClassObject1Test1()
+    {
+        var stringArray = new string[5] { "A", "B", "C", "D", "E" };
+        var instance = new GenericIndexerClassObject1<string>(stringArray.Length);
+        for (var i = 0; i < stringArray.Length; i++) instance.Add(stringArray[i]);
+        for (var i = 0; i < stringArray.Length; i++) Console.WriteLine($@"indexer{i}::{instance[i]}");
+    }
+
     public class PublicIndexerIntObject
     {
         private readonly int[]? _intArray;
@@ -121,6 +130,27 @@ public class IndexerTest
                 if (stringArray != null) result = Array.IndexOf(stringArray, key);
                 return result;
             }
+        }
+    }
+
+    public class GenericIndexerClassObject1<T>
+    {
+        private readonly T[] _items;
+
+        public GenericIndexerClassObject1(int length)
+        {
+            _items = new T [length];
+        }
+
+        public T this[int index]
+        {
+            get => _items[index];
+            set => _items[index] = value;
+        }
+
+        public void Add(T item)
+        {
+            _items[_items.Length - 1] = item;
         }
     }
 }
