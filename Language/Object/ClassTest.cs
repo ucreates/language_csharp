@@ -207,7 +207,7 @@ public class ClassTest
     {
         public void Show2()
         {
-            Console.WriteLine($"{Methoase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+            Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
             Show3();
         }
 
