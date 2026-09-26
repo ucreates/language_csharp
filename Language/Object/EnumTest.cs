@@ -61,6 +61,15 @@ public class EnumTest
     }
 
     [Test]
+    public void PublicEnumTest7()
+    {
+        var flags = PublicEnumObject.Test1 | PublicEnumObject.Test2;
+        Assert.That(flags.HasFlag(PublicEnumObject.Test1), Is.True);
+        Assert.That(flags.HasFlag(PublicEnumObject.Test2), Is.True);
+        Assert.That(flags.HasFlag(PublicEnumObject.Test3), Is.False);
+    }
+
+    [Test]
     public void ProtectedEnumTest1()
     {
         Console.WriteLine($"{ProtectedEnumObject.Test}");

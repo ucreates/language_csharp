@@ -6,6 +6,8 @@ public class StructTest
     public void PublicStructObjectTest1()
     {
         var instance = new PublicStructObject();
+        instance.PHP1 = 0;
+        instance.PHP2 = "MyNumberCardStstemBug";
         Console.WriteLine($"{instance.ToString()}");
     }
 
@@ -39,6 +41,13 @@ public class StructTest
 
     public struct PublicStructObject
     {
+        public double PHP1;
+        public string PHP2;
+
+        public override string ToString()
+        {
+            return $"{PHP1}, {PHP2}";
+        }
     }
 
     protected struct ProtectedStructObject
