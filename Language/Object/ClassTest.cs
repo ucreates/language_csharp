@@ -105,6 +105,20 @@ public class ClassTest
         instance.CompareTo(1, 0);
     }
 
+    [Test]
+    public void NestClassObject1Test1()
+    {
+        var instance = new NestClassObject1();
+        instance.Execute();
+    }
+
+    [Test]
+    public void NestClassObject1Test2()
+    {
+        var instance = new NestClassObject1.NestClassObject2();
+        instance.Execute();
+    }
+
     public class PublicClassObject
     {
     }
@@ -231,6 +245,23 @@ public class ClassTest
             if (0 > thisSeason.CompareTo(previousSeason)) Console.WriteLine("faild and set default ");
 
             return default;
+        }
+    }
+
+    public class NestClassObject1
+    {
+        public void Execute()
+        {
+            var nest = new NestClassObject2();
+            nest.Execute();
+        }
+
+        public class NestClassObject2
+        {
+            public void Execute()
+            {
+                Console.WriteLine($"{MethodBase.GetCurrentMethod()?.Name} from {nameof(InheritClassObject2)}");
+            }
         }
     }
 }
