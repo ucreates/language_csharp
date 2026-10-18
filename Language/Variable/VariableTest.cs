@@ -120,6 +120,23 @@ public class VariableTest
         var object2 = variable2 as object;
         Assert.That(object2, Is.Not.Null);
     }
+
+    [Test]
+    public void BoxingTest()
+    {
+        var data = 100;
+        Console.WriteLine(data.ToString());
+        object obj = data;
+    }
+
+    [Test]
+    public void UnBoxingTest()
+    {
+        var data = 100;
+        Console.WriteLine(data.ToString());
+        object obj = data;
+        data = data;
+    }
 }
 
 public class Variable

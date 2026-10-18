@@ -16,6 +16,16 @@ public class ObjectTest
         var instance2 = new ObjectClass1("ObjectName1", "ObjectName2");
         Assert.That(instance1.Equals(instance2), Is.True);
     }
+
+    [Test]
+    public void EqualsTest2()
+    {
+        var instance1 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance2 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance3 = new ObjectClass1("ObjectName3", "ObjectName4");
+        Assert.That(instance1 == instance2, Is.True);
+        Assert.That(instance1 != instance3, Is.True);
+    }
 }
 
 public class ObjectClass1
@@ -47,5 +57,16 @@ public class ObjectClass1
     public override int GetHashCode()
     {
         return Name1.GetHashCode() ^ Name2.GetHashCode();
+    }
+
+    public static bool operator ==(ObjectClass1 obj1, ObjectClass1 obj2)
+    {
+        if (ReferenceEquals(obj1, obj2)) return true;
+        return obj1.Name1.Equals(obj2.Name1) && obj1.Name2.Equals(obj2.Name2);
+    }
+
+    public static bool operator !=(ObjectClass1 obj1, ObjectClass1 obj2)
+    {
+        return !(obj1 == obj2);
     }
 }
