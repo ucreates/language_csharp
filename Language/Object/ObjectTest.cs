@@ -26,12 +26,62 @@ public class ObjectTest
         Assert.That(instance1 == instance2, Is.True);
         Assert.That(instance1 != instance3, Is.True);
     }
+
+    [Test]
+    public void IncrementTest1()
+    {
+        var instance1 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance2 = ++instance1;
+        Assert.That(instance2.Name1, Is.EqualTo(instance1.Name1));
+        Assert.That(instance2.Name2, Is.EqualTo(instance1.Name2));
+        Assert.That(instance2.Value1, Is.EqualTo(instance1.Value1++));
+        Assert.That(instance2.Value2, Is.EqualTo(instance1.Value2++));
+    }
+
+    [Test]
+    public void DecrementTest1()
+    {
+        var instance1 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance2 = --instance1;
+        Assert.That(instance2.Name1, Is.EqualTo(instance1.Name1));
+        Assert.That(instance2.Name2, Is.EqualTo(instance1.Name2));
+        Assert.That(instance2.Value1, Is.EqualTo(instance1.Value1--));
+        Assert.That(instance2.Value2, Is.EqualTo(instance1.Value2--));
+    }
+
+    [Test]
+    public void OperatorBoolTest1()
+    {
+        var instance1 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance2 = ++instance1;
+        if (instance2)
+            Console.WriteLine("true");
+        else
+            Console.WriteLine("false");
+    }
+
+    [Test]
+    public void OperatorBoolTest2()
+    {
+        var instance1 = new ObjectClass1("ObjectName1", "ObjectName2");
+        var instance2 = --instance1;
+        if (instance2)
+            Console.WriteLine("true");
+        else
+            Console.WriteLine("false");
+    }
 }
 
 public class ObjectClass1
 {
     public string Name1;
     public string Name2;
+    public int Value1;
+    public int Value2;
+
+    public ObjectClass1()
+    {
+    }
 
     public ObjectClass1(string name1, string name2)
     {
@@ -68,5 +118,37 @@ public class ObjectClass1
     public static bool operator !=(ObjectClass1 obj1, ObjectClass1 obj2)
     {
         return !(obj1 == obj2);
+    }
+
+    public static ObjectClass1 operator ++(ObjectClass1 obj)
+    {
+        return new ObjectClass1
+        {
+            Name1 = obj.Name1,
+            Name2 = obj.Name2,
+            Value1 = obj.Value1 + 1,
+            Value2 = obj.Value2 + 1
+        };
+    }
+
+    public static ObjectClass1 operator --(ObjectClass1 obj)
+    {
+        return new ObjectClass1
+        {
+            Name1 = obj.Name1,
+            Name2 = obj.Name2,
+            Value1 = obj.Value1 - 1,
+            Value2 = obj.Value2 - 1
+        };
+    }
+
+    public static bool operator true(ObjectClass1 obj)
+    {
+        return obj.Value1 >= 0 && obj.Value2 >= 0;
+    }
+
+    public static bool operator false(ObjectClass1 obj)
+    {
+        return obj.Value1 < 0 || obj.Value2 < 0;
     }
 }
