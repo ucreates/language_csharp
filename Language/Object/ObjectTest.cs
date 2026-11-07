@@ -70,6 +70,15 @@ public class ObjectTest
         else
             Console.WriteLine("false");
     }
+
+    [Test]
+    public void OperatorExplictTest1()
+    {
+        var instance1 = (ObjectClass1)10;
+        Console.WriteLine(instance1);
+        var instance2 = (ObjectClass1)"explict";
+        Console.WriteLine(instance2);
+    }
 }
 
 public class ObjectClass1
@@ -91,7 +100,7 @@ public class ObjectClass1
 
     public override string ToString()
     {
-        return $"{Name1} {Name2}";
+        return $"{Value1} {Value2} {Name1} {Name2}";
     }
 
     public override bool Equals(object? other)
@@ -150,5 +159,15 @@ public class ObjectClass1
     public static bool operator false(ObjectClass1 obj)
     {
         return obj.Value1 < 0 || obj.Value2 < 0;
+    }
+
+    public static explicit operator ObjectClass1(int value)
+    {
+        return new ObjectClass1 { Value1 = value };
+    }
+
+    public static explicit operator ObjectClass1(string name)
+    {
+        return new ObjectClass1 { Name1 = name };
     }
 }
